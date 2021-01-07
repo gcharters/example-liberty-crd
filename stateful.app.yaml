@@ -1,0 +1,16 @@
+apiVersion: openliberty.io/v1beta1
+kind: OpenLibertyApplication
+metadata:
+  name: stateful-app
+  namespace: open-liberty
+spec:
+  applicationImage: gcharters/stateful.app:1.0-SNAPSHOT
+  service:
+    type: ClusterIP
+    port: 9080
+  expose: true
+  route:
+    path: /
+  storage:
+    size: 2Gi
+    mountPath: "/logs"
